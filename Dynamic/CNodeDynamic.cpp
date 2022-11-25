@@ -28,7 +28,6 @@ void CNodeDynamic::vPrintUp() {
 
 CNodeDynamic::~CNodeDynamic() {
     for (int i = 0; i < iGetChildrenNumber(); i++) {
-//        cout << endl << "USUWANKO";
 //        v_children[i]->vPrint();
         delete v_children[i];
     }
@@ -75,6 +74,7 @@ CTreeDynamic::CTreeDynamic() {
 }
 
 CTreeDynamic::~CTreeDynamic() {
+    if(pc_root->pcGetParent()==NULL)  //MASTER SLAVE PATTERN
     delete pc_root;
 }
 
@@ -89,7 +89,9 @@ bool CTreeDynamic::bMoveSubtree(CNodeDynamic *pcParentNode, CNodeDynamic *pcNewC
         else {
             CNodeDynamic *pc_parent_temp = pcNewChildNode->pcGetParent();
             if (pc_parent_temp == NULL) {
-                return false;
+                pcParentNode->vAddNewChild(pcNewChildNode);
+
+                return true;
             }
             pcParentNode->vAddNewChild(pcNewChildNode);
             return pc_parent_temp->bRemoveChild(pcNewChildNode);
