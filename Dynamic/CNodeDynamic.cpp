@@ -28,7 +28,6 @@ void CNodeDynamic::vPrintUp() {
 
 CNodeDynamic::~CNodeDynamic() {
     for (int i = 0; i < iGetChildrenNumber(); i++) {
-//        cout << endl << "USUWANKO";
 //        v_children[i]->vPrint();
         delete v_children[i];
     }
