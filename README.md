@@ -40,7 +40,7 @@ void v_tree_test() {
 ```
 
 
-##DYNAMIC TREE
+## DYNAMIC TREE
 
 ```c++
 void v_tree_test_dynamic(){
