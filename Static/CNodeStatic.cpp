@@ -4,6 +4,9 @@ void CNodeStatic::vAddNewChild() {
     CNodeStatic cNodeStatic;
     cNodeStatic.pc_parent_node = this;
     v_children.push_back(cNodeStatic);
+    for (int i = 0; i<v_children.size(); ++i) {
+        v_children[i].pc_parent_node=this;
+    }
 }
 
 CNodeStatic *CNodeStatic::pcGetChild(int iChildOffset) {
@@ -27,7 +30,6 @@ void CNodeStatic::vPrintUp() {
 }
 
 CNodeStatic::~CNodeStatic() {
-//    cout<<"delete: ";
 //    vPrint();
 }
 

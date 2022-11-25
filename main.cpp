@@ -40,6 +40,9 @@ void v_tree_test() {
     treeStatic2.pcGetRoot()->pcGetChild(0)->pcGetChild(0)->vSetValue(-11);
     treeStatic2.pcGetRoot()->pcGetChild(0)->pcGetChild(1)->vSetValue(-12);
 
+    treeStatic2.vPrintTree();
+    cout<<endl;
+
     treeStatic.bMoveSubtree(treeStatic.pcGetRoot()->pcGetChild(0)->pcGetChild(0)
     ,treeStatic2.pcGetRoot());
 
@@ -78,8 +81,11 @@ void v_tree_test_dynamic(){
     cTreeDynamic2.pcGetRoot()->pcGetChild(0)->pcGetChild(0)->vSetValue(-11);
     cTreeDynamic2.pcGetRoot()->pcGetChild(0)->pcGetChild(1)->vSetValue(-12);
 
+    cTreeDynamic2.vPrintTree();
+    cout<<endl;
+
     cTreeDynamic.bMoveSubtree(cTreeDynamic.pcGetRoot()->pcGetChild(0)->pcGetChild(0)
-            ,cTreeDynamic2.pcGetRoot());
+            ,cTreeDynamic2.pcGetRoot()->pcGetChild(0));
 
     cTreeDynamic.vPrintTree();
     cout<<endl;
