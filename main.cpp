@@ -5,9 +5,19 @@
 void v_tree_test();
 void v_tree_test_dynamic();
 
+void v_print_nodes(CNodeStatic *cNodeStatic,bool isUp){
+    if (isUp) cNodeStatic->vPrintUp();
+    else cNodeStatic->vPrintAllBelow();
+}
+
+void v_print_nodes(CNodeDynamic *cNodeDynamic, bool isUp){
+    if (isUp) cNodeDynamic->vPrintUp();
+    else cNodeDynamic->vPrintAllBelow();
+}
+
 int main() {
-//    v_tree_test();
-    v_tree_test_dynamic();
+    v_tree_test();
+//    v_tree_test_dynamic();
 
     return 0;
 }
@@ -30,25 +40,29 @@ void v_tree_test() {
     treeStatic.vPrintTree();
     cout<<endl;
 
-    CTreeStatic treeStatic2;
-    treeStatic2.pcGetRoot()->vAddNewChild();
-    treeStatic2.pcGetRoot()->vAddNewChild();
-    treeStatic2.pcGetRoot()->pcGetChild(0)->vSetValue(-1);
-    treeStatic2.pcGetRoot()->pcGetChild(1)->vSetValue(-2);
-    treeStatic2.pcGetRoot()->pcGetChild(0)->vAddNewChild();
-    treeStatic2.pcGetRoot()->pcGetChild(0)->vAddNewChild();
-    treeStatic2.pcGetRoot()->pcGetChild(0)->pcGetChild(0)->vSetValue(-11);
-    treeStatic2.pcGetRoot()->pcGetChild(0)->pcGetChild(1)->vSetValue(-12);
+    v_print_nodes(treeStatic.pcGetRoot()->pcGetChild(0),false);
 
-    treeStatic2.vPrintTree();
-    cout<<endl;
 
-    treeStatic.bMoveSubtree(treeStatic.pcGetRoot()->pcGetChild(0)->pcGetChild(0)
-    ,treeStatic2.pcGetRoot());
+//    CTreeStatic treeStatic2;
+//    treeStatic2.pcGetRoot()->vAddNewChild();
+//    treeStatic2.pcGetRoot()->vAddNewChild();
+//    treeStatic2.pcGetRoot()->pcGetChild(0)->vSetValue(-1);
+//    treeStatic2.pcGetRoot()->pcGetChild(1)->vSetValue(-2);
+//    treeStatic2.pcGetRoot()->pcGetChild(0)->vAddNewChild();
+//    treeStatic2.pcGetRoot()->pcGetChild(0)->vAddNewChild();
+//    treeStatic2.pcGetRoot()->pcGetChild(0)->pcGetChild(0)->vSetValue(-11);
+//    treeStatic2.pcGetRoot()->pcGetChild(0)->pcGetChild(1)->vSetValue(-12);
+//
+//    treeStatic2.vPrintTree();
+//    cout<<endl;
+//
+//    treeStatic.bMoveSubtree(treeStatic.pcGetRoot()->pcGetChild(0)->pcGetChild(0)
+//    ,treeStatic2.pcGetRoot());
+//
+//    treeStatic.vPrintTree();
+//    cout<<endl;
+//    treeStatic2.vPrintTree();
 
-    treeStatic.vPrintTree();
-    cout<<endl;
-    treeStatic2.vPrintTree();
 
 //    CTreeStatic cTreeStatic(*treeStatic.pcGetRoot()->pcGetChild(0));
 //    cTreeStatic.vPrintTree();

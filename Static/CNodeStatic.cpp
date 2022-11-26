@@ -31,6 +31,7 @@ void CNodeStatic::vPrintUp() {
 
 CNodeStatic::~CNodeStatic() {}
 
+
 CNodeStatic *CNodeStatic::pcGetParent() {
     return pc_parent_node;
 }
